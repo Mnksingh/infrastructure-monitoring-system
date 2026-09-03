@@ -1,61 +1,23 @@
-package com.infrastructure.monitoring.entity;
+package com.infrastructure.monitoring.dto;
 
-import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import com.infrastructure.monitoring.entity.User;
 
-@Entity
-@Table(name = "project")
-public class Project {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CreateProjectRequest {
 
     private String name;
-
-    @Column(name = "ministry_id")
     private Long ministryId;
-
-    @Column(name = "original_cost", precision = 15, scale = 2)
     private BigDecimal originalCost;
-
-    @Column(name = "revised_cost", precision = 15, scale = 2)
     private BigDecimal revisedCost;
-
-    @Column(name = "original_completion")
     private LocalDate originalCompletion;
-
-    @Column(name = "revised_completion")
     private LocalDate revisedCompletion;
-
-    @Column(name = "start_date")
     private LocalDate startDate;
-
-    @Column(name = "current_status")
     private String currentStatus;
-
     private String state;
-
-    @Column(name = "implementing_agency")
     private String implementingAgency;
 
-    // Assigned Officer
-    @ManyToOne
-    @JoinColumn(name = "officer_id")
-    private User officer;
+    private Long officerId;
 
-
-    // Getters and Setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -137,11 +99,11 @@ public class Project {
         this.implementingAgency = implementingAgency;
     }
 
-    public User getOfficer() {
-        return officer;
+    public Long getOfficerId() {
+        return officerId;
     }
 
-    public void setOfficer(User officer) {
-        this.officer = officer;
+    public void setOfficerId(Long officerId) {
+        this.officerId = officerId;
     }
 }

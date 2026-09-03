@@ -1,12 +1,12 @@
-
 package com.infrastructure.monitoring.controller;
 
+import com.infrastructure.monitoring.dto.CreateProjectRequest;
 import com.infrastructure.monitoring.entity.Project;
 import com.infrastructure.monitoring.service.ProjectService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-        import java.util.List;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/projects")
@@ -19,8 +19,10 @@ public class ProjectController {
     }
 
     @PostMapping
-    public Project createProject(@RequestBody Project project) {
-        return projectService.createProject(project);
+    public Project createProject(
+            @RequestBody CreateProjectRequest request) {
+
+        return projectService.createProject(request);
     }
 
     @GetMapping
@@ -29,7 +31,9 @@ public class ProjectController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Project> getProjectById(@PathVariable Long id) {
+    public ResponseEntity<Project> getProjectById(
+            @PathVariable Long id) {
+
         return projectService.getProjectById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -44,8 +48,11 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteProject(
+            @PathVariable Long id) {
+
         projectService.deleteProject(id);
+
         return ResponseEntity.noContent().build();
     }
 }
