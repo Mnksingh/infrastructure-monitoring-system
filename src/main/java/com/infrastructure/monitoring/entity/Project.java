@@ -144,4 +144,21 @@ public class Project {
     public void setOfficer(User officer) {
         this.officer = officer;
     }
+
+    // Roadmap-compliant aliases
+    public LocalDate getOriginalCompletionDate() {
+        return originalCompletion;
+    }
+
+    public void setOriginalCompletionDate(LocalDate originalCompletionDate) {
+        this.originalCompletion = originalCompletionDate;
+    }
+
+    public LocalDate getRevisedCompletionDate() {
+        return revisedCompletion;
+    }
+
+    public void setRevisedCompletionDate(LocalDate revisedCompletionDate) {
+        this.revisedCompletion = revisedCompletionDate;
+    }
 }

@@ -1,44 +1,32 @@
-package com.infrastructure.monitoring.entity;
+package com.infrastructure.monitoring.dto;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "alert")
-public class Alert {
+public class AlertResponseDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "project_id")
     private Long projectId;
-
-    @Column(name = "risk_assessment_id")
+    private String projectName;
     private Long riskAssessmentId;
-
-    @Column(name = "severity", length = 20)
     private String severity;
-
-    @Column(columnDefinition = "TEXT")
     private String message;
-
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
-
-    private Boolean resolved = false;
-
-    @Column(name = "resolved_at")
+    private Boolean resolved;
     private LocalDateTime resolvedAt;
 
-    @PrePersist
-    public void prePersist() {
-        if (createdAt == null) {
-            createdAt = LocalDateTime.now();
-        }
-        if (resolved == null) {
-            resolved = false;
-        }
+    public AlertResponseDTO() {
+    }
+
+    public AlertResponseDTO(Long id, Long projectId, String projectName, Long riskAssessmentId, String severity, String message, LocalDateTime createdAt, Boolean resolved, LocalDateTime resolvedAt) {
+        this.id = id;
+        this.projectId = projectId;
+        this.projectName = projectName;
+        this.riskAssessmentId = riskAssessmentId;
+        this.severity = severity;
+        this.message = message;
+        this.createdAt = createdAt;
+        this.resolved = resolved;
+        this.resolvedAt = resolvedAt;
     }
 
     public Long getId() {
@@ -55,6 +43,14 @@ public class Alert {
 
     public void setProjectId(Long projectId) {
         this.projectId = projectId;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public Long getRiskAssessmentId() {

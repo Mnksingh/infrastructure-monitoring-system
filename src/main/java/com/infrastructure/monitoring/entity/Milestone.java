@@ -74,4 +74,21 @@ public class Milestone {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
+
+    // Roadmap-compliant aliases
+    public BigDecimal getPlannedPhysicalProgressPct() {
+        return plannedPercent;
+    }
+
+    public void setPlannedPhysicalProgressPct(BigDecimal plannedPhysicalProgressPct) {
+        this.plannedPercent = plannedPhysicalProgressPct;
+    }
+
+    public BigDecimal getActualPhysicalProgressPct() {
+        return actualPercent;
+    }
+
+    public void setActualPhysicalProgressPct(BigDecimal actualPhysicalProgressPct) {
+        this.actualPercent = actualPhysicalProgressPct;
+    }
 }

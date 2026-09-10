@@ -1,4 +1,3 @@
-
 package com.infrastructure.monitoring.dto;
 
 import com.infrastructure.monitoring.entity.Alert;
@@ -16,19 +15,25 @@ public class ProjectSummaryDTO {
     private FinancialRecord latestFinancial;
     private RiskAssessment latestRisk;
     private List<Alert> activeAlerts;
+    private List<Milestone> milestones;
+    private List<FinancialRecord> financialRecords;
 
     public ProjectSummaryDTO(
             Project project,
             Milestone latestProgress,
             FinancialRecord latestFinancial,
             RiskAssessment latestRisk,
-            List<Alert> activeAlerts) {
+            List<Alert> activeAlerts,
+            List<Milestone> milestones,
+            List<FinancialRecord> financialRecords) {
 
         this.project = project;
         this.latestProgress = latestProgress;
         this.latestFinancial = latestFinancial;
         this.latestRisk = latestRisk;
         this.activeAlerts = activeAlerts;
+        this.milestones = milestones;
+        this.financialRecords = financialRecords;
     }
 
     public Project getProject() {
@@ -49,5 +54,13 @@ public class ProjectSummaryDTO {
 
     public List<Alert> getActiveAlerts() {
         return activeAlerts;
+    }
+
+    public List<Milestone> getMilestones() {
+        return milestones;
+    }
+
+    public List<FinancialRecord> getFinancialRecords() {
+        return financialRecords;
     }
 }

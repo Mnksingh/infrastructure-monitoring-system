@@ -77,4 +77,13 @@ public class FinancialRecord {
     public void setPlannedExpenditure(BigDecimal plannedExpenditure) {
         this.plannedExpenditure = plannedExpenditure;
     }
+
+    // Roadmap-compliant aliases
+    public BigDecimal getPlannedExpenditureToDate() {
+        return plannedExpenditure;
+    }
+
+    public void setPlannedExpenditureToDate(BigDecimal plannedExpenditureToDate) {
+        this.plannedExpenditure = plannedExpenditureToDate;
+    }
 }
