@@ -25,7 +25,7 @@ public class MlClient {
     private final String mlServiceUrl;
 
     public MlClient(
-            @Value("${ml.service.url:http://127.0.0.1:8000}") String mlServiceUrl,
+            @@Value("${ML_API_URL}") String mlServiceUrl,
             @Value("${ml.service.connect-timeout-ms:3000}") int connectTimeoutMs,
             @Value("${ml.service.read-timeout-ms:5000}") int readTimeoutMs) {
 
